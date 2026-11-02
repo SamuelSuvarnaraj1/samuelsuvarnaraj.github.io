@@ -709,18 +709,18 @@ html.rv-lock{overflow:hidden}
       <article class="card pj reveal" id="p3" data-key="p3">
         <h3 class="pj-h"><button class="pj-head" id="p3-btn" aria-expanded="false" aria-controls="p3-panel">
           <span class="pj-num">3</span>
-          <span class="pj-t"><span class="pj-title">Operator Screens</span><span class="platform">Siemens WinCC and Ignition</span><span class="pj-sum">Operator interface with live tags, status display, alarms and manual controls.</span></span>
+          <span class="pj-t"><span class="pj-title">Operator Screens (WinCC and Ignition)</span><span class="platform">Siemens and Inductive Automation</span><span class="pj-sum">A WinCC status screen for the Pick and Place cell is built and tested; Ignition screens for the Sorting Station are planned.</span></span>
           <span class="pj-thumb" aria-hidden="true"></span>
           <span class="chev" aria-hidden="true"></span>
         </button></h3>
         <div class="panel" id="p3-panel" role="region" aria-labelledby="p3-btn"><div class="panel-in"><div class="panel-body">
           <div>
-            <p>Operator screens for the two machines above, one on each platform: live tag display, status indication, alarms and manual controls, designed so an operator can act on what the screen shows.</p>
+            <p>Operator screens for the two machines above, one on each platform. The WinCC screen for the Pick and Place cell is built: a display-only view of the belts, the gripper and the machine status lamps, run on a simulated TP1200 Comfort panel next to Factory I/O. The Ignition screens for the Sorting Station are still planned.</p>
             <ul class="checks">
-              <li>Tag mapping between the PLC and the screens</li>
-              <li>Alarm handling an operator can act on</li>
-              <li>Status display and manual controls</li>
-              <li>WinCC screens for the Pick and Place cell: in progress</li>
+              <li>WinCC screen for the Pick and Place cell: belts, gripper and 5 status lamps tied to live PLC tags</li>
+              <li>Six tests run against the simulated cell: normal cycle, Stop, E-stop, Reset, restart and watchdog fault</li>
+              <li>Run on S7-PLCSIM and Factory I/O, not on physical hardware</li>
+              <li>Not built yet: an alarm list and control buttons (display only)</li>
               <li>Ignition screens for the Sorting Station: planned</li>
             </ul>
           </div>
@@ -749,7 +749,7 @@ html.rv-lock{overflow:hidden}
               <rect class="seg" x="234" y="220" width="112" height="34" rx="6"/><text class="accx" x="290" y="242" text-anchor="middle">Auto</text>
               <text x="405" y="242" text-anchor="middle">Manual</text>
             </svg>
-            <p class="cap">Operator screen, simplified. Signals, alarms and mode control on one page.</p>
+            <p class="cap">Illustration of a typical operator screen, not the built one. The real WinCC screens are under Project images.</p>
           </div>
           <div class="proof"><h4>Project images</h4><div class="shots"></div></div>
         </div></div></div>
@@ -814,7 +814,7 @@ html.rv-lock{overflow:hidden}
         <span class="chip h"><span class="sr">Hands-on: </span>Siemens TIA Portal</span>
         <span class="chip h"><span class="sr">Hands-on: </span>Factory I/O</span>
         <span class="chip n"><span class="sr">Learning next: </span>Studio 5000</span>
-        <span class="chip b"><span class="sr">Building now: </span>Siemens WinCC</span>
+        <span class="chip h"><span class="sr">Hands-on: </span>Siemens WinCC</span>
       </article>
 
       <article class="card tile reveal">
@@ -981,7 +981,7 @@ const CONFIG = {
   photo: "",
   /* Project images: put files in an "images" folder named p1-1.png, p1-2.png ... (up to p4-4).
      png, jpg, jpeg and webp all work. Optional captions go in the same order, e.g. p1: ["Ladder program", "Simulator run"]. */
-  captions: { p1: [], p2: [], p3: [], p4: [] }
+  captions: { p1: [], p2: [], p3: ["WinCC screen while the cell is running", "WinCC screen after an emergency stop"], p4: [] }
 };
 
 (function () {
