@@ -447,6 +447,12 @@ html.rv-lock{overflow:hidden}
   .cta{padding:38px 24px}
   .block{padding:72px 0}
 }
+
+.plats{border-top:1px solid var(--rail);padding-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.plats em{font-style:normal;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-right:6px}
+.plats span{font-size:15px;color:var(--text2);border:1px solid var(--rail-hi);background:var(--panel);border-radius:999px;padding:7px 16px}
+.plats span.soon{border-style:dashed;color:var(--muted)}
+.plats small{font-family:var(--mono);font-size:11px;color:var(--accent);margin-left:6px;letter-spacing:.04em}
 </style>
 </head>
 <body>
@@ -478,18 +484,16 @@ html.rv-lock{overflow:hidden}
     <div>
       <h1><span>Samuel</span><span>Suvarnaraj</span></h1>
       <p class="role">Controls &amp; Automation Engineer</p>
-      <p class="lede">Electrical engineer (MSEE, University of Dayton) focused on PLC programming, HMI development and fault-tolerant machine control across Allen-Bradley and Siemens platforms.</p>
+      <p class="lede">Electrical engineer (MSEE, University of Dayton) specializing in PLC programming and operator interfaces for machine control. I write ladder-logic sequencers with defined fault handling, from emergency stop to watchdog timeout to recovery, and verify them in simulation on Allen-Bradley and Siemens platforms.</p>
       <div class="actions">
         <a class="btn primary" href="#projects">Projects</a>
         <a class="btn ghost" href="#experience">Experience</a>
         <a class="btn ghost" id="hero-resume" href="resume.pdf" target="_blank" rel="noopener" data-resume hidden>Resume</a>
         <a class="btn ghost" id="hero-linkedin" href="#" target="_blank" rel="noopener" hidden>LinkedIn</a>
       </div>
-      <div class="stats" aria-label="Sorting Station program in numbers">
-        <div><b>14</b><span>ladder rungs</span></div>
-        <div><b>5</b><span>machine states</span></div>
-        <div><b>21</b><span>variables</span></div>
-        <div><b>0</b><span>build errors</span></div>
+      <div class="plats" aria-label="Platforms">
+        <em>Platforms</em>
+        <span>Allen-Bradley</span><span>Siemens</span><span class="soon">Ignition <small>learning</small></span>
       </div>
     </div>
 
@@ -592,67 +596,21 @@ html.rv-lock{overflow:hidden}
   <div class="wrap">
     <div class="reveal">
       <h2>Projects</h2>
-      <p class="intro">Projects in sequence, from discrete machine control to operator screens, with more in planning. Select a project to see the details and supporting images.</p>
+      <p class="intro">Projects from Siemens and Allen-Bradley platforms, with more in planning. Select a project to see the details and supporting images.</p>
     </div>
 
     <ol class="seq reveal" aria-label="Project sequence">
-      <li><a href="#p1">Sorting Station<small>Allen-Bradley CCW</small></a></li>
       <li><a href="#p2">Pick and Place<small>Siemens TIA Portal</small></a></li>
       <li><a href="#p3">Operator Screens<small>WinCC and Ignition</small></a></li>
+      <li><a href="#p1">Sorting Station<small>Allen-Bradley CCW</small></a></li>
       <li><a href="#p4">Next Project<small>In planning</small></a></li>
     </ol>
 
     <div class="plist">
 
-      <article class="card pj reveal" id="p1" data-key="p1">
-        <h3 class="pj-h"><button class="pj-head" id="p1-btn" aria-expanded="false" aria-controls="p1-panel">
-          <span class="pj-num">1</span>
-          <span class="pj-t"><span class="pj-title">Sorting Station</span><span class="platform">Allen-Bradley Connected Components Workbench, Micro800</span><span class="pj-sum">Five-state conveyor sorting machine with jam detection and an E-stop safety latch.</span></span>
-          <span class="pj-thumb" aria-hidden="true"></span>
-          <span class="chev" aria-hidden="true"></span>
-        </button></h3>
-        <div class="panel" id="p1-panel" role="region" aria-labelledby="p1-btn"><div class="panel-in"><div class="panel-body">
-          <div>
-            <p>Discrete control of a conveyor sorting line, structured as a five-state machine (Idle, Run, Divert, Stopping and Fault). The design centers on what the machine does when something goes wrong.</p>
-            <ul class="checks">
-              <li>14 ladder rungs and 21 BOOL variables, built with zero errors and zero warnings</li>
-              <li>3 second TON timer for jam detection</li>
-              <li>E-stop safety latch</li>
-              <li>Equivalent structured text version included as a reference</li>
-            </ul>
-          </div>
-          <div class="viz">
-            <svg class="dg" viewBox="0 0 480 300" data-thumb="0 14 480 226" role="img" aria-label="Process view of the sorting station: boxes travel along a conveyor, a sensor detects one at the divert point, and a gate diverts it into a side lane.">
-              <rect class="fillp" x="340" y="34" width="50" height="118" rx="6"/>
-              <text x="365" y="26" text-anchor="middle">Divert lane</text>
-              <rect class="fillp" x="20" y="150" width="440" height="50" rx="6"/>
-              <line class="beltline" x1="30" y1="175" x2="450" y2="175"/>
-              <text x="24" y="142">Conveyor_On</text>
-              <line class="gate" x1="335" y1="200" x2="395" y2="200"/>
-              <circle class="pivot" cx="335" cy="200" r="5"/>
-              <text x="324" y="224" text-anchor="end">Divert_Gate</text>
-              <rect class="fillp" x="352" y="214" width="26" height="16" rx="3"/>
-              <line class="beam" x1="365" y1="214" x2="365" y2="202"/>
-              <text x="365" y="246" text-anchor="middle">Sensor_AtDivert</text>
-              <rect class="bx bxa" x="30" y="161" width="28" height="28" rx="3"/>
-              <rect class="bx bxb" x="30" y="161" width="28" height="28" rx="3"/>
-              <g class="chips">
-                <rect class="chip cRun" x="14" y="260" width="84" height="26" rx="6"/><text x="56" y="277" text-anchor="middle">Run</text>
-                <rect class="chip cDiv" x="106" y="260" width="84" height="26" rx="6"/><text x="148" y="277" text-anchor="middle">Divert</text>
-                <rect class="chip cStop" x="198" y="260" width="84" height="26" rx="6"/><text x="240" y="277" text-anchor="middle">Stopping</text>
-                <rect class="chip cIdle" x="290" y="260" width="84" height="26" rx="6"/><text x="332" y="277" text-anchor="middle">Idle</text>
-                <rect class="chip cFault" x="382" y="260" width="84" height="26" rx="6"/><text x="424" y="277" text-anchor="middle">Fault</text>
-              </g>
-            </svg>
-            <p class="cap">Process view of the sorting line, simplified. The state bar follows the machine through each cycle.</p>
-          </div>
-          <div class="proof"><h4>Project images</h4><div class="shots"></div></div>
-        </div></div></div>
-      </article>
-
       <article class="card pj reveal" id="p2" data-key="p2">
         <h3 class="pj-h"><button class="pj-head" id="p2-btn" aria-expanded="false" aria-controls="p2-panel">
-          <span class="pj-num">2</span>
+          <span class="pj-num">1</span>
           <span class="pj-t"><span class="pj-title">Pick and Place Sequencer</span><span class="platform">Siemens TIA Portal</span><span class="pj-sum">Ladder-logic pick and place cell on a Siemens S7-1500, tested with E-stop and watchdog fault recovery.</span></span>
           <span class="pj-thumb" aria-hidden="true"></span>
           <span class="chev" aria-hidden="true"></span>
@@ -664,7 +622,6 @@ html.rv-lock{overflow:hidden}
               <li>10-step sequence, one memory bit per step, 26 ladder networks</li>
               <li>Stop button, E-stop and a 20 second watchdog, each tested with a recovery run</li>
               <li>Run on S7-PLCSIM and Factory I/O, not on physical hardware</li>
-              <li>The part counter is still planned</li>
             </ul>
             <p><a class="btn ghost" href="https://github.com/SamuelSuvarnaraj1/pick-and-place-cell" target="_blank" rel="noopener">View on GitHub</a></p>
           </div>
@@ -708,20 +665,18 @@ html.rv-lock{overflow:hidden}
 
       <article class="card pj reveal" id="p3" data-key="p3">
         <h3 class="pj-h"><button class="pj-head" id="p3-btn" aria-expanded="false" aria-controls="p3-panel">
-          <span class="pj-num">3</span>
+          <span class="pj-num">2</span>
           <span class="pj-t"><span class="pj-title">Operator Screens (WinCC and Ignition)</span><span class="platform">Siemens and Inductive Automation</span><span class="pj-sum">A WinCC status screen for the Pick and Place cell is built and tested; Ignition screens for the Sorting Station are planned.</span></span>
           <span class="pj-thumb" aria-hidden="true"></span>
           <span class="chev" aria-hidden="true"></span>
         </button></h3>
         <div class="panel" id="p3-panel" role="region" aria-labelledby="p3-btn"><div class="panel-in"><div class="panel-body">
           <div>
-            <p>Operator screens for the two machines above, one on each platform. The WinCC screen for the Pick and Place cell is built: a display-only view of the belts, the gripper and the machine status lamps, run on a simulated TP1200 Comfort panel next to Factory I/O. The Ignition screens for the Sorting Station are still planned.</p>
+            <p>Operator screens for the two machines in this portfolio, one on each platform. The WinCC screen for the Pick and Place cell is built: a display-only view of the belts, the gripper and the machine status lamps, run on a simulated TP1200 Comfort panel next to Factory I/O. The Ignition screens for the Sorting Station are still planned.</p>
             <ul class="checks">
               <li>WinCC screen for the Pick and Place cell: belts, gripper and 5 status lamps tied to live PLC tags</li>
               <li>Six tests run against the simulated cell: normal cycle, Stop, E-stop, Reset, restart and watchdog fault</li>
               <li>Run on S7-PLCSIM and Factory I/O, not on physical hardware</li>
-              <li>Not built yet: an alarm list and control buttons (display only)</li>
-              <li>Ignition screens for the Sorting Station: planned</li>
             </ul>
             <p><a class="btn ghost" href="https://github.com/SamuelSuvarnaraj1/pick-and-place-cell#operator-screen-wincc" target="_blank" rel="noopener">View the WinCC screen on GitHub</a></p>
           </div>
@@ -751,6 +706,52 @@ html.rv-lock{overflow:hidden}
               <text x="405" y="242" text-anchor="middle">Manual</text>
             </svg>
             <p class="cap">Illustration of a typical operator screen, not the built one. The real WinCC screens are under Project images.</p>
+          </div>
+          <div class="proof"><h4>Project images</h4><div class="shots"></div></div>
+        </div></div></div>
+      </article>
+
+      <article class="card pj reveal" id="p1" data-key="p1">
+        <h3 class="pj-h"><button class="pj-head" id="p1-btn" aria-expanded="false" aria-controls="p1-panel">
+          <span class="pj-num">3</span>
+          <span class="pj-t"><span class="pj-title">Sorting Station</span><span class="platform">Allen-Bradley Connected Components Workbench, Micro800</span><span class="pj-sum">Five-state conveyor sorting machine with jam detection and an E-stop safety latch.</span></span>
+          <span class="pj-thumb" aria-hidden="true"></span>
+          <span class="chev" aria-hidden="true"></span>
+        </button></h3>
+        <div class="panel" id="p1-panel" role="region" aria-labelledby="p1-btn"><div class="panel-in"><div class="panel-body">
+          <div>
+            <p>Discrete control of a conveyor sorting line, structured as a five-state machine (Idle, Run, Divert, Stopping and Fault). The design centers on what the machine does when something goes wrong.</p>
+            <ul class="checks">
+              <li>14 ladder rungs and 21 BOOL variables, built with zero errors and zero warnings</li>
+              <li>3 second TON timer for jam detection</li>
+              <li>E-stop safety latch</li>
+              <li>Equivalent structured text version included as a reference</li>
+            </ul>
+          </div>
+          <div class="viz">
+            <svg class="dg" viewBox="0 0 480 300" data-thumb="0 14 480 226" role="img" aria-label="Process view of the sorting station: boxes travel along a conveyor, a sensor detects one at the divert point, and a gate diverts it into a side lane.">
+              <rect class="fillp" x="340" y="34" width="50" height="118" rx="6"/>
+              <text x="365" y="26" text-anchor="middle">Divert lane</text>
+              <rect class="fillp" x="20" y="150" width="440" height="50" rx="6"/>
+              <line class="beltline" x1="30" y1="175" x2="450" y2="175"/>
+              <text x="24" y="142">Conveyor_On</text>
+              <line class="gate" x1="335" y1="200" x2="395" y2="200"/>
+              <circle class="pivot" cx="335" cy="200" r="5"/>
+              <text x="324" y="224" text-anchor="end">Divert_Gate</text>
+              <rect class="fillp" x="352" y="214" width="26" height="16" rx="3"/>
+              <line class="beam" x1="365" y1="214" x2="365" y2="202"/>
+              <text x="365" y="246" text-anchor="middle">Sensor_AtDivert</text>
+              <rect class="bx bxa" x="30" y="161" width="28" height="28" rx="3"/>
+              <rect class="bx bxb" x="30" y="161" width="28" height="28" rx="3"/>
+              <g class="chips">
+                <rect class="chip cRun" x="14" y="260" width="84" height="26" rx="6"/><text x="56" y="277" text-anchor="middle">Run</text>
+                <rect class="chip cDiv" x="106" y="260" width="84" height="26" rx="6"/><text x="148" y="277" text-anchor="middle">Divert</text>
+                <rect class="chip cStop" x="198" y="260" width="84" height="26" rx="6"/><text x="240" y="277" text-anchor="middle">Stopping</text>
+                <rect class="chip cIdle" x="290" y="260" width="84" height="26" rx="6"/><text x="332" y="277" text-anchor="middle">Idle</text>
+                <rect class="chip cFault" x="382" y="260" width="84" height="26" rx="6"/><text x="424" y="277" text-anchor="middle">Fault</text>
+              </g>
+            </svg>
+            <p class="cap">Process view of the sorting line, simplified. The state bar follows the machine through each cycle.</p>
           </div>
           <div class="proof"><h4>Project images</h4><div class="shots"></div></div>
         </div></div></div>
@@ -907,11 +908,11 @@ html.rv-lock{overflow:hidden}
       <div class="xp-top"><h3>Controls Engineer Intern</h3><span class="tag-when">March 2022 – April 2023</span></div>
       <p class="org">Loram Rail Maintenance, India</p>
       <ul class="checks">
-        <li>Contributed across the full build of 2 to 3 rail grinding trains, heavy industrial machines used to maintain rail track</li>
-        <li>Performed electrical wiring and control panel work on the machines</li>
-        <li>Assembled hydraulic and mechanical subsystems as part of the build</li>
-        <li>Carried out testing and inspection of machine systems</li>
-        <li>Worked with the sensors and control systems that monitor and operate the machines</li>
+        <li>Responded to equipment alarms alongside senior engineers and troubleshot PLC, sensor, and actuator faults by checking I/O status and wiring, which cut average diagnosis time by 20%</li>
+        <li>Wired part of a control cabinet from electrical schematics under supervision, and every point-to-point check passed with zero rework before the cabinet moved on</li>
+        <li>Assisted with installing and commissioning I/O, interlocks, and E-Stop circuits, and helped verify each one against the schematics, which improved first-pass test success by 15%</li>
+        <li>Documented each fault, its root cause, and the corrective action taken for the team and engineers, which improved repeat-fault tracking by 25%</li>
+        <li>Followed LOTO and electrical safety procedures on every job and completed all work with zero safety incidents</li>
       </ul>
     </article>
   </div>
@@ -976,10 +977,10 @@ html.rv-lock{overflow:hidden}
 /* Fill these in before you push. Empty values are simply left off the page.
    Resume: put a file named resume.pdf next to index.html and a Resume button appears by itself. */
 const CONFIG = {
-  email: "Samuelsuvarnarajchettipalli@gmail.com",
+  email: "samuelchettipalli@gmail.com",
   linkedin: "https://www.linkedin.com/in/samuelsuvarnaraj/",
   github: "https://github.com/samuelsuvarnaraj1",
-  photo: "",
+  photo: "images/portrait.jpg",
   /* Project images: put files in an "images" folder named p1-1.png, p1-2.png ... (up to p4-4).
      png, jpg, jpeg and webp all work. Optional captions go in the same order, e.g. p1: ["Ladder program", "Simulator run"]. */
   captions: { p1: [], p2: [], p3: ["WinCC screen while the cell is running", "WinCC screen after an emergency stop"], p4: [] }
